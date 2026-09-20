@@ -1,20 +1,19 @@
 import os
-from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
 
-class Settings(BaseSettings):
-    PROJECT_NAME: str = "Family ID & Beneficiary Management System"
-    API_V1_STR: str = "/api/v1"
-    SECRET_KEY: str = os.getenv("SECRET_KEY", "super-secret-key-for-parivar-hackathon-2026")
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
-    
-    # Default SQLite fallback database URL for local execution; can be overridden by DATABASE_URL env var for PostgreSQL
-    DATABASE_URL: str = os.getenv(
-        "DATABASE_URL",
-        "sqlite:///./parivar.db"
-    )
+# Load .env file if available
+load_dotenv()
 
-    class Config:
-        case_sensitive = True
+db_url = os.getenv("DATABASE_URL", "sqlite:///./parivar.db")
+if db_url and db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+class Settings:
+    PROJECT_NAME: str = os.getenv("PROJECT_NAME", "Gujarat Kutumb Setu")
+    API_V1_STR: str = os.getenv("API_V1_STR", "/api/v1")
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "gujarat-kutumb-setu-production-secret-key-2026")
+    ALGORITHM: str = os.getenv("ALGORITHM", "HS256")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))
+    DATABASE_URL: str = db_url
 
 settings = Settings()
