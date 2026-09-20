@@ -3,6 +3,16 @@
 
 ---
 
+## 📹 Project Demo Video
+
+[![Watch Gujarat Kutumb Setu Demo Video](https://img.shields.com/badge/🎥_Watch_Demo_Video-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/YOUR_GOOGLE_DRIVE_VIDEO_ID/view)
+
+👉 **[Click Here to Watch Full Portal Demo Video on Google Drive](https://drive.google.com/file/d/YOUR_GOOGLE_DRIVE_VIDEO_ID/view)**
+
+> *Note: Google Drive share links must be opened directly via URL because GitHub markdown security blocks inline Google Drive video embeds.*
+
+---
+
 ## 🔑 Login Credentials
 
 Use the following pre-configured credentials to access the system:
